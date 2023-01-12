@@ -1,0 +1,68 @@
+.detail-container {
+    display: flex;
+    flex-direction: column;
+
+    .restaurant-info-container {
+        display: flex;
+    }
+
+    .restaurant-img {
+        width: 40em;
+        height: 20em;
+        border-radius: 1em;
+    }
+
+    .restaurant-desc {
+        padding: 0.25em 0em;
+    }
+
+    .align-contacts {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 0.25em 0em;
+    }
+
+    .btn-gap {
+        margin-right: 1em;
+    }
+
+    .selected-btn {
+        background: #503E9D;
+        color: #fff;
+    }
+}
+
+.menu-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.menu-card {
+    margin: 1.25em;
+    box-sizing: border-box;
+
+    img {
+        width: 22em;
+        height: 13em;
+        object-fit: cover;
+        border-radius: 1em;
+    }
+
+    .menu-label-container {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+
+        .menu-price {
+            color: #503E9D;
+        }
+    }
+}
+
+.menu-title {
+    font-weight: 500;
+    font-size: 1.25em;
+    padding: 1.5em 0em;
+}

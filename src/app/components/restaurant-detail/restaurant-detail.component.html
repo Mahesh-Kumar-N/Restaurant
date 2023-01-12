@@ -1,0 +1,49 @@
+<div class="detail-container">
+    <!-- Restaurant Info -->
+    <div class="restaurant-info-container">
+        <div class="w-50">
+            <h2>{{restaurantDetail.restaurantName}}</h2>
+            <div class="restaurant-desc">{{restaurantDetail.restaurantDescription}}</div>
+            <div class="align-contacts">
+                <mat-icon>schedule</mat-icon>
+                <span>{{restaurantDetail.openingHours}}</span>
+            </div>
+            <div class="align-contacts">
+                <mat-icon>call</mat-icon>
+                <span>{{restaurantDetail.contactNumber}}</span>
+            </div>
+            <div class="align-contacts">
+                <mat-icon>language</mat-icon>
+                <span>{{restaurantDetail.websiteUrl}}</span>
+            </div>
+        </div>
+        <div class="w-50">
+            <img [src]="restaurantDetail.restaurantImage" class="restaurant-img">
+        </div>
+    </div>
+    <ng-container>
+        <!-- Menu Category -->
+        <div>
+            <button mat-stroked-button *ngFor="let restaurantCatogory of itemCategory" class="btn-gap"
+                [ngClass]="{'selected-btn': (selectedCategory === restaurantCatogory)}"
+                (click)="filterMenuList(restaurantCatogory, 'category')">
+                {{restaurantCatogory}}
+            </button>
+        </div>
+        <div class="menu-title">Menu</div>
+        <section class="menu-container">
+            <!-- Menu list -->
+            <div class="menu-card" *ngFor="let menu of menuList">
+                <img [src]="menu.itemPhoto">
+                <div class="menu-label-container">
+                    <span>{{menu.itemName}}</span>
+                    <span class="menu-price">{{menu.itemCost}}</span>
+                </div>
+            </div>
+            <!-- No Menu Message -->
+            <div *ngIf="menuList.length === 0">
+                There are no menu available for this category.
+            </div>
+        </section>
+    </ng-container>
+</div>

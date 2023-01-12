@@ -1,0 +1,27 @@
+<ng-container *ngIf="!restaurantDetail">
+    <ng-container>
+        <h2>Restaurants</h2>
+        <div class="restaurant-container">
+            <!-- Restaurant List -->
+            <div *ngFor="let restaurant of restaurantLists" [id]="restaurant.id" class="restaurant-container-item"
+                (click)="onRestaurantSelect(restaurant)">
+                <img [src]="restaurant.restaurantImage">
+                <div class="restaurant-title-container">
+                    <span class="restaurant-title">{{restaurant.restaurantName}}</span>
+                    <button *ngIf="restaurant.isOpen" class="open-btn" mat-button>Open Now</button>
+                    <button *ngIf="!restaurant.isOpen" class="close-btn" mat-button>Closed</button>
+                </div>
+                <ng-container>
+                    <p class="ellipsis">{{restaurant.restaurantDescription}}</p>
+                </ng-container>
+            </div>
+            <!-- No Restaurant Message -->
+            <div *ngIf="restaurantLists.length === 0">Search result is empty</div>
+        </div>
+    </ng-container>
+</ng-container>
+<!-- Restaurant Detail -->
+<app-restaurant-detail *ngIf="restaurantDetail"
+    [restaurantDetail]="restaurantDetail"
+    [restaurant]="selectedRestaurant">
+</app-restaurant-detail>

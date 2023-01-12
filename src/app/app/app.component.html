@@ -1,0 +1,44 @@
+<mat-sidenav-container class="hotel-container">
+    <!-- Side Nav -->
+    <mat-sidenav #sidenav mode="side" class="hotel-sidenav" [(opened)]="opened" (click)="sidenav.toggle()">
+        <div class="sidenav-title">
+            <mat-icon class="sidenav-title-icon">group</mat-icon>
+            <span>Pomo & Co</span>
+        </div>
+        <div *ngFor="let menu of sideMenuList" class="menu-list"
+            [ngClass]="{'menu-selected':(menu.item === selectedMenu)}">
+            <mat-icon>{{menu.icon}}</mat-icon>
+            <span>{{menu.item}}</span>
+        </div>
+    </mat-sidenav>
+    <!-- Side Nav Content -->
+    <mat-sidenav-content class="hotel-sidenav-content">
+        <div class="sidenav-content-sub-container">
+            <!-- Side Nav Toggle -->
+            <div class="w-50">
+                <button mat-icon-button class="sidenav-toggle-btn" (click)="sidenav.toggle()">
+                    <mat-icon>chevron_left</mat-icon>
+                </button>
+            </div>
+            <div class="action-container">
+                <!-- Search Form -->
+                <form class="search-form" [formGroup]="form">
+                    <mat-form-field appearance="outline">
+                        <mat-icon matPrefix>search</mat-icon>
+                        <input type="text" matInput formControlName="search"
+                            placeholder="Search for Restaurants  (Press Enter to search)">
+                    </mat-form-field>
+                </form>
+                <button mat-icon-button class="sidenav-toggle-btn">
+                    <mat-icon>wifi_password</mat-icon>
+                </button>
+                <!-- Shopping Cart btn -->
+                <button mat-icon-button class="shopping-cart-btn">
+                    <mat-icon>shopping_cart</mat-icon>
+                </button>
+            </div>
+        </div>
+        <!-- Restaurant list -->
+        <app-restaurant #home></app-restaurant>
+    </mat-sidenav-content>
+</mat-sidenav-container>
